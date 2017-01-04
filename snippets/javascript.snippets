@@ -1,27 +1,55 @@
+snippet index
+	export default from './${1:ComponentName}';
 snippet cs
-	var cx = React.addons.classSet;
+	const cx = classNames({
+		${1:classname}: ${2:true}
+	});
 snippet cdm
-	componentDidMount: function() {
+	componentDidMount() {
 		${1}
 	},
 snippet cdup
-	componentDidUpdate: function(prevProps, prevState) {
+	componentDidUpdate(prevProps, prevState) {
 		${1}
 	},
+snippet cnt
+	import React from 'react';
+	import { connect } from 'react-redux';
+
+	const ${1:ContainerName} = React.createClass({
+
+		displayName: '$1',
+
+		propTypes: {
+			history: React.PropTypes.object
+		},
+
+		render() {
+			return (
+				${0:<div />}
+			);
+		},
+	});
+
+	function mapStateToProps(state) {
+		return { ...state };
+	},
+
+	export default connect(mapStateToProps)($1);
 snippet cwm
-	componentWillMount: function() {
+	componentWillMount() {
 		${1}
 	},
 snippet cwr
-	componentWillReceiveProps: function(nextProps) {
+	componentWillReceiveProps(nextProps) {
 		${1}
 	},
 snippet cwun
-	componentWillUnmount: function() {
+	componentWillUnmount() {
 		${1}
 	},
 snippet cwu
-	componentWillUpdate: function(nextProps, nextState) {
+	componentWillUpdate(nextProps, nextState) {
 		${1}
 	},
 snippet cx
@@ -31,13 +59,13 @@ snippet cx
 snippet fup
 	forceUpdate(${1:callback});
 snippet gdp
-	getDefaultProps: function() {
+	getDefaultProps() {
 		return {
 			${1}
 		};
 	},
 snippet gis
-	getInitialState: function() {
+	getInitialState() {
 		return {
 			${1}: ${2}
 		};
@@ -48,46 +76,38 @@ snippet jsx
 	/**
 	 * @jsx React.DOM
 	 */
-
-	var React = require('react');
-
-	var ${1:ClassName} = React.createClass({
-
-		render: function() {
-			return (
-				${0:<div />}
-			);
-		}
-
-	});
-
-	module.exports = $1;
 snippet pt
 	propTypes: {
 		${1}: React.PropTypes.${2:string}
 	},
 snippet rcc
-	var ${1:ClassName} = React.createClass({
+	import React from 'react';
+	//import classNames from 'classnames';
 
-		render: function() {
+	//import './index.less';
+
+	export default React.createClass({
+
+		displayName: '${1:ComponentName}',
+
+		render() {
 			return (
-				${0:<div />}
+				${2:<div />}
 			);
-		}
-
+		},
 	});
 snippet ren
-	render: function() {
+	render() {
 		return (
 			${1:<div />}
 		);
-	}
+	},
 snippet sst
 	setState({
 		${1}: ${2}
 	});
 snippet scu
-	shouldComponentUpdate: function(nextProps, nextState) {
+	shouldComponentUpdate(nextProps, nextState) {
 		${1}
 	},
 snippet props
